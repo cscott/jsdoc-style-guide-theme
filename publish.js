@@ -401,6 +401,20 @@ function addNavItem(parent, data) {
 };
 
 /**
+ * Builds the member navigation if the configuration allows.
+ *
+ * Takes the same arguments as `buildMemberNav`.
+ */
+function buildMemberNavIfConf( nav, member, name, seen, linkto ) {
+  if (
+    env.conf.templates.wmf.hideSections === undefined ||
+    env.conf.templates.wmf.hideSections.indexOf( name ) < 0
+  ) {
+    buildMemberNav(nav, member, name, seen, linkto);
+  }
+}
+
+/**
  * Create the navigation sidebar.
  * @param {object} members The members that will be used to create the sidebar.
  * @param {array<object>} members.classes
@@ -423,14 +437,14 @@ function buildNav(members) {
     var seen = {};
     var seenTutorials = {};
 
-    buildMemberNav(nav, members.modules, 'Modules', {}, linkto);
-    buildMemberNav(nav, members.externals, 'Externals', seen, linktoExternal);
-    buildMemberNav(nav, members.namespaces, 'Namespaces', seen, linkto);
-    buildMemberNav(nav, members.classes, 'Classes', seen, linkto);
-    buildMemberNav(nav, members.interfaces, 'Interfaces', seen, linkto);
-    buildMemberNav(nav, members.events, 'Events', seen, linkto);
-    buildMemberNav(nav, members.mixins, 'Mixins', seen, linkto);
-    buildMemberNav(nav, members.tutorials, 'Tutorials', seenTutorials, linktoTutorial);
+    buildMemberNavIfConf(nav, members.modules, 'Modules', {}, linkto);
+    buildMemberNavIfConf(nav, members.externals, 'Externals', seen, linktoExternal);
+    buildMemberNavIfConf(nav, members.namespaces, 'Namespaces', seen, linkto);
+    buildMemberNavIfConf(nav, members.classes, 'Classes', seen, linkto);
+    buildMemberNavIfConf(nav, members.interfaces, 'Interfaces', seen, linkto);
+    buildMemberNavIfConf(nav, members.events, 'Events', seen, linkto);
+    buildMemberNavIfConf(nav, members.mixins, 'Mixins', seen, linkto);
+    buildMemberNavIfConf(nav, members.tutorials, 'Tutorials', seenTutorials, linktoTutorial);
 
     if (members.globals.length && false) {
         globalNav = doc.createElement('ul');

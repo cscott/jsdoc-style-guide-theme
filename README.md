@@ -27,7 +27,11 @@ This theme supports the following options:
 "templates": {
     "wmf": {
         "maintitle": [string, overrides name from package.json],
-        "repository": [string, overrides repo from package.json]
+        "repository": [string, overrides repo from package.json],
+        "hideSections": ["Events"…]
+        // This could include Modules, Externals, Namespaces, Classes,
+        // Interfaces, Events, Mixins, and Tutorials. The sections added
+        // here will not be shown in the sidebar.
     }
 }
 ```
