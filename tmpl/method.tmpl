@@ -17,8 +17,8 @@ var self = this;
 <div class="summary">
     <?js if (data.summary) { ?>
     <?js= summary ?>
-    <?js } else { ?>
-    ...
+    <?js } else if (data.description){ ?>
+    <?js= data.description.split('<\/p>')[0]?></p>
     <?js } ?>
 </div>
 <?js } ?>
