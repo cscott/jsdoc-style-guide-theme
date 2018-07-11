@@ -160,7 +160,7 @@
 .nav--main .is-on > a { pointer-events: inherit; }
 
 /* keep navbox from overflowing */
-.nav--main { overflow-x: scroll; }
+.nav--main { overflow-x: auto; }
 
 /* tweak so summary and description have same top margin */
 .summary { margin-top: 1em; }
