@@ -65,8 +65,8 @@ pre {
 .details .object-value { padding-top: 0; }
 
 .description {
-    margin-bottom: 1em;
-    margin-top: 1em;
+    margin-bottom: 2em;
+    margin-top: 0em;
 }
 
 .code-caption
@@ -167,8 +167,12 @@ pre {
 /* keep navbox from overflowing */
 .nav--main { overflow-x: auto; }
 
-/* tweak so summary and description have same top margin */
-.summary { margin-top: 1em; }
+.summary {
+  /* keep same margin-top as description */
+  margin-top: 0em;
+  /* lesser margin-bottom than description to keep page compact */
+  margin-bottom: 0em;
+}
 
 /* collapse boxes, in pure CSS */
 /* inspired by https://basicuse.net/articles/pl/textile/html_css/creating_a_toggle_box_to_collapse_or_expand_content_using_only_css3 */
