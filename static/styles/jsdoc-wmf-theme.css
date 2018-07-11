@@ -211,3 +211,9 @@ input[type=checkbox].toggle-box + label {
 input[type=checkbox].toggle-box:checked + label {
     background-position: 0 -24px;
 }
+
+/* override style guide */
+#header {
+  z-index: 100;
+  background: #eaecf0;
+}
