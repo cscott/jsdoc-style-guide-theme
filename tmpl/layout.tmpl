@@ -84,5 +84,18 @@ arr(document.querySelectorAll("nav > ol > li a:not([href])")).map(function(el) {
 </script>
 <script> prettyPrint(); </script>
 <script src="scripts/linenumber.js"> </script>
+
+<script src="scripts/sticky-sidebar.js"> </script>
+<script type="text/javascript">
+var sidebar = new StickySidebar('.col--start', {
+  containerSelector: '.content-box',
+  innerWrapperSelector: 'nav--main',
+  topSpacing: 100,
+  bottomSpacing: 20
+});
+document.getElementsByClassName('col--start')[0].addEventListener( 'click', function(e) {
+  sidebar.updateSticky();
+});
+</script>
 </body>
 </html>
