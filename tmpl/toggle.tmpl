@@ -1,1 +1,9 @@
-<input class="toggle-box" type="checkbox" id="toggle-<?js= id ?>"/><label for="toggle-<?js= id ?>"></label>
+<?js
+var checkedAttribute = open ? 'checked' : '';
+?>
+<input
+  class="toggle-box"
+  type="checkbox"
+  id="toggle-<?js= id ?>"
+  <?js= checkedAttribute ?>/>
+<label for="toggle-<?js= id ?>"></label>

@@ -1,6 +1,7 @@
 <?js
 var data = obj;
 var self = this;
+var open = data.showOpen || false;
 ?>
 <div>
 <?js if (data.kind !== 'module' && !data.hideconstructor) { ?>
@@ -9,7 +10,7 @@ var self = this;
     <?js } ?>
 
     <?js if (data.kind !== 'namespace') { ?>
-    <?js= self.partial('toggle.tmpl', { id: id }) ?>
+    <?js= self.partial('toggle.tmpl', { id: id, open: open }) ?>
     <h4 class="name" id="<?js= id ?>"><?js= data.attribs + (kind === 'class' ? 'new ' : '') +
     name + (data.signature || '') ?></h4>
     <?js } ?>
