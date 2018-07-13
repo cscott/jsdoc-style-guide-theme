@@ -152,6 +152,12 @@ function buildItemTypeStrings(item) {
     return types;
 }
 
+function buildAttribsClassNames(attribs) {
+  return attribs.map( function ( a ) {
+    return 'method--' + a;
+  } ).join( ' ' );
+}
+
 function buildAttribsString(attribs) {
     var attribsString = '';
 
@@ -221,8 +227,12 @@ function addSignatureTypes(f) {
 function addAttribs(f) {
     var attribs = helper.getAttribs(f);
     var attribsString = buildAttribsString(attribs);
-
     f.attribs = util.format('<span class="type-signature">%s</span>', attribsString);
+
+    // TODO Is this the right place?
+    f.attribsClassName = buildAttribsClassNames( attribs );
+    f.attribsClassName += !!f.inherited ? ' method--inherited' : '';
+    f.attribsClassName += !!f.deprecated ? ' method--deprecated' : '';
 }
 
 function shortenPaths(files, commonPrefix) {
